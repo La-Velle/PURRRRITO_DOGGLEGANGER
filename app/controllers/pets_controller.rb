@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  authorize @pets
   def index
     @pet = Pet.all
   end
