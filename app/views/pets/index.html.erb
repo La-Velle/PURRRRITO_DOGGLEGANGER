@@ -1,5 +1,6 @@
 <h1>Browse Pets!</h1>
 <br>
+<div class="container">
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
     Doggo
@@ -12,4 +13,22 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1596138252452-463802fb8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
     Dinos
   </div>
+</div>
+
+
+
+</div>
+<div class="container">
+  <% @pet.each do |pet| %>
+ <div class="cards">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
+    </div>
+  <div class="card-product-infos">
+    <h2> <%= link_to pet.name, pets_path(pet) %></h2>
+    <h2>This lovely pet's name is <%= pet.name %></h2>
+    <h2>Thi Doggo is <%= pet.description %></h2>
+    <h2>To spend some time with <%= pet.name %> the prise is <%= pet.price %> £</h2>
+    </div>
+<% end %>
+</div>
 </div>

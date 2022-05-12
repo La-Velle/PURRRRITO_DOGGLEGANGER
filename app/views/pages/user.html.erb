@@ -1,5 +1,9 @@
 
 
+<% if policy(Pet).create? %>
+  <%= link_to "New pet post", pet_create_path %>
+<% end %>
+
 <p> Sample buttons </p>
 
 <div class="flash flash-success alert alert-dismissible fade show" role="alert">
