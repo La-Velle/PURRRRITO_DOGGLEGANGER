@@ -1,14 +1,24 @@
 class PetsController < ApplicationController
-  authorize @pets
+
   def index
-    @pet = Pet.all
+    #@pet = Pet.all
+    @pet = policy_scope(Pet).order(created_at: :desc)
+
+  end
+
+  def new
+    @pet =  Pet.new(params[:pet])
+    authorize @pet
   end
 
   def create
-    @pet = Pet.new(params[:pet])
+    @pet =  Pet.new(params[:pet])
+    authorize @pet
+    @pet.user = current_user
     @pet.save
+
     # Will raise ActiveModel::ForbiddenAttributesError
-    redirect_to pet_path(@pet)
+    redirect_to pets_path
   end
 
   def edit
@@ -22,6 +32,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet = Pet.find(params[:id])
+    authorize @pet
     @pet.destroy
     redirect_to pets_path
   end

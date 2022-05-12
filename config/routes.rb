@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  # pets routes by anna
+  # pets routes by anna and simone added new
   get "pets", to: "pets#index"
-  get "pets/create", to: "pets#create"
+  post "pets", to: "pets#create"
+  get "pets/new", to: "pets#new"
   get "pets/:id/edit", to: "pets#edit"
   get "pets/:id", to: "pets#show"
   delete "pets/:id", to: "pets#destroy"
