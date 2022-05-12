@@ -3,8 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+# added pundit gem by simone
 gem 'pundit'
 
+# added device gem by simone
 gem 'devise'
 
 # added faker gem by anna
