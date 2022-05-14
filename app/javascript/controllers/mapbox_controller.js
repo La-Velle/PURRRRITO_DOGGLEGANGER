@@ -20,11 +20,6 @@ export default class extends Controller {
   }
 }
 
-// connect() {
-//   // [...]
-//   this.#addMarkersToMap()
-//   this.#fitMapToMarkers()
-// }
 
 // _ = private or not called outside file
 _addMarkersToMap() {
@@ -52,4 +47,3 @@ _addMarkersToMap() {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 1000 })
   }
-}

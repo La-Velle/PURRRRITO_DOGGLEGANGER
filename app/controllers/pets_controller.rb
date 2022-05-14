@@ -2,21 +2,18 @@ class PetsController < ApplicationController
 
 
   def index
-    # @pet = Pet.all
-
-    @pets = Pet.all
+    #@pet = Pet.all
     @pets = policy_scope(Pet).order(created_at: :desc)
-
-#     @markers = @pets.geocoded.map do |pet|
-#       {
-#         lat: pet.latitude,
-#         lng: pet.longditude,
-#         info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
-#         image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
-#       }
-#     end
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
+      }
+    end
   end
-
+    
   def new
     @pet = Pet.new(params[:pet])
     authorize @pet
