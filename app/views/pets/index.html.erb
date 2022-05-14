@@ -25,10 +25,15 @@
     </div>
   <div class="card-product-infos">
     <h2> <%= link_to pet.name, pets_path(pet) %></h2>
-    <h2>This lovely pet's name is <%= pet.name %></h2>
-    <h2>Thi Doggo is <%= pet.description %></h2>
-    <h2>To spend some time with <%= pet.name %> the prise is <%= pet.price %> £</h2>
+    <h2>This lovely pet is a <%= pet.name %></h2>
+    <h2>This Pet is <%= pet.description %></h2>
+    <h2>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</h2>
     </div>
 <% end %>
 </div>
 </div>
+
+<div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
