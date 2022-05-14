@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'about', to: 'pages#about'
-
+  get "/home", to: "pages#home"
 
   devise_for :users
   root to: "pages#home"
 
-  # pets routes by anna and simone added new
+  # PETS ROUTES by anna and simone added new
   get "pets", to: "pets#index"
   post "pets", to: "pets#create"
   get "pets/new", to: "pets#new"
@@ -13,11 +12,13 @@ Rails.application.routes.draw do
   get "pets/:id", to: "pets#show"
   delete "pets/:id", to: "pets#destroy"
 
-#   resources :pets, except: [:edit, :update] do
-#     resources :bookings, only: [:new, :create]
-#   end
-#   resources :bookings, only:[:destroy]
-# end
+  # BOOKINGS ROUTES
+  get "bookings", to: "bookings#"
+  post "bookings/new", to: "bookings#create"
+  get "bookings/new", to: "bookings#new"
+  get "bokings/:id/edit", to: "bookings#edit"
+  get "bookings/:id", to: "bookings#show"
+  delete "bookings/:id", to: "bookings#destroy"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
