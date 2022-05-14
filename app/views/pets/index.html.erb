@@ -15,16 +15,16 @@
   </div>
 </div>
 
-
+  <img src=#"https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
 <div class="container">
     <h1> All Pets </h1>
-    <% @pet.each do |pet| %>
+    <% @pets.each do |pet| %>
       <div class="row justify-content-left">
 
         <div class="col-12 col-lg-6">
           <h2><%= link_to pet.name, pets_path(pet) %></h2>
             <div class="card-pet" >
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
 
               <div class="card-pet-details">

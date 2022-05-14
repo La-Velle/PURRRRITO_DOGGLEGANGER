@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
+gem 'cloudinary', '~> 1.16.0'
 
 # added pundit gem by simone
 gem 'pundit'
