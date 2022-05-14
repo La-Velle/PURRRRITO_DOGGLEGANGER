@@ -89,8 +89,71 @@
   padding: 16px;
 }
 
+
 .flex-container {
   background-color: grey;
   display: flex;
   width: 702px;
+}
+
+// simone card-pet
+.card-pet {
+  overflow: hidden;
+  height: 180px;
+  width: 720px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 26px;
+}
+
+.card-pet img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-pet h2 {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.card-pet p {
+  color: black;
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  h2 {
+    text-decoration: none;
+  }
+}
+
+.card-pet {
+  padding: 16px;
+}
+
+.card-pet-infos {
+  display: flex;
+}
+
+.card-pet-text{
+  margin-left: 8px;
+
+  h2 {
+    text-decoration: none;
+  }
+}
+.card-pet-details{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
