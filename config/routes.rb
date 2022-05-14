@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   get "/home", to: "pages#home"
 
-  # USER ROUTES
   devise_for :users
   root to: "pages#home"
-  get "pets", to: "pets#index"
-  post "pets", to: "pets#create"
 
   # PETS ROUTES by anna and simone added new
   get "pets", to: "pets#index"
