@@ -1,7 +1,7 @@
 <h1>Browse Pets!</h1>
 <br>
 <div class="container">
-<div class="cards">
+ <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
     Doggo
   </div>
@@ -16,19 +16,31 @@
 </div>
 
 
-
-</div>
 <div class="container">
-  <% @pet.each do |pet| %>
- <div class="cards">
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
-    </div>
-  <div class="card-product-infos">
-    <h2> <%= link_to pet.name, pets_path(pet) %></h2>
-    <h2>This lovely pet's name is <%= pet.name %></h2>
-    <h2>Thi Doggo is <%= pet.description %></h2>
-    <h2>To spend some time with <%= pet.name %> the prise is <%= pet.price %> £</h2>
-    </div>
-<% end %>
-</div>
+    <h1> All Pets </h1>
+    <% @pet.each do |pet| %>
+      <div class="row justify-content-left">
+
+        <div class="col-12 col-lg-6">
+          <h2><%= link_to pet.name, pets_path(pet) %></h2>
+            <div class="card-pet" >
+             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+
+              <div class="card-pet-details">
+                    <div class="card-pet-text">
+                    <p>This lovely pet is a <%= pet.name %></p>
+                    <p>This Pet is  <%= pet.description %></p>
+                      <div class="card-pet-infos">
+                        <p>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</p>
+                      </div>
+
+                    </div>
+             </div>
+
+            </div>
+
+          </div>
+      </div>
+    <% end %>
 </div>

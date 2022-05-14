@@ -1,7 +1,9 @@
 class PetsController < ApplicationController
+ 
 
   def index
     #@pet = Pet.all
+
     @pet = policy_scope(Pet).order(created_at: :desc)
 
   end

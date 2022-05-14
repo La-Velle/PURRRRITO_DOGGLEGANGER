@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
+
   devise_for :users
-  root to: 'pages#home'
+  root to: "pages#home"
 
   # pets routes by anna and simone added new
   get "pets", to: "pets#index"
