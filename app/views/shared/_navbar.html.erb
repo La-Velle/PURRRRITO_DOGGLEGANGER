@@ -12,23 +12,23 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", "home", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Your puppies", "#", class: "nav-link" %>
+            <%= link_to "Your Pets", "pets", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to current_user.email, "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Purrrrito list", "#", class: "dropdown-item" %>
-              <%= link_to "Create a dogglenganger advert", pets_new_url, class: "dropdown-item" %>
-              <%= link_to "Delete a dogglenganger advert", "#", class: "dropdown-item" %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Your Pets", "pets", class: "dropdown-item" %>
+              <%= link_to "Create an advert", "pets_new_url", class: "dropdown-item" %>
+              <%= link_to "Delete an advert", "pets_delete_url", class: "dropdown-item" %>
 
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
