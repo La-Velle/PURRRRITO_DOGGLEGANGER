@@ -3,7 +3,7 @@
 
 require "open-uri"
 
-file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file = URI.open('https://en.wikipedia.org/wiki/Setter#/media/File:English_setter.jpg')
 
 puts "cleaning database"
 Pet.destroy_all
@@ -11,14 +11,16 @@ puts "cleaning database"
 User.destroy_all
 
 
-@pet = Pet.new(user: userone, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)
-@pet.save
-@pet.photo.attach(io: file, filename: "photo")
 
 
 userone = User.create!(first_name: "T", last_name: "Lave", email: "lavellesine@gmail.com", password: "123456")
 usertwo = User.create!(first_name: "A", last_name: "Godfrey", email: "anna@gmail.com", password: "123456")
 userthree = User.create!(first_name: "S", last_name: "Piccolo", email: "simone@gmail.com", password: "123456")
+
+@pet = Pet.new(user: userthree, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)
+@pet.save
+@pet.photo.attach(io: file, filename: "photo")
+
 
 5.times do
   Pet.new(user: userone, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)

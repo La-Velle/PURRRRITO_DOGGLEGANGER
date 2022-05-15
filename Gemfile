@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 gem 'cloudinary', '~> 1.16.0'
 
+# added to  cloudinary API KEY
+gem 'dotenv-rails', groups: [:development, :test]
+
 # added pundit gem by simone
 gem 'pundit'
 
