@@ -11,13 +11,13 @@ userone = User.create!(first_name: "T", last_name: "Lave", email: "lavellesine@g
 usertwo = User.create!(first_name: "A", last_name: "Godfrey", email: "anna@gmail.com", password: "123456")
 userthree = User.create!(first_name: "S", last_name: "Piccolo", email: "simone@gmail.com", password: "123456")
 
-5.times do
+10.times do
   Pet.create!(user: userone, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)
 end
-2.times do
+10.times do
   Pet.create!(user: usertwo, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)
 end
-3.times do
+25.times do
   Pet.create!(user: userthree, name: Faker::Creature::Animal.name, description: Faker::Creature::Bird.emotional_adjective)
 end
 puts "Finished!"
