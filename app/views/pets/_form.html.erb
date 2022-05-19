@@ -8,3 +8,18 @@
               wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
 
 <%= f.button :submit, class: "btn btn-primary" %>
+
+<H1>Create a New Pet</h1>
+
+<%= render 'form', pet: @pet %>
+
+<%= link_to 'Back', pet_path %>
+
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location, input_html: { data: { geocoder_target: "address" } }, wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %> %>
+  <%= f.input :price %>
+  <%= f.input :availability %>
+  <%= f.submit %>
+<% end %>

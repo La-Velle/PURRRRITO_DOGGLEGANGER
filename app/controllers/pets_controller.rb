@@ -1,8 +1,6 @@
 class PetsController < ApplicationController
-
-
+  skip_before_action :authenticate_user!
   def index
-    #@pet = Pet.all
     @pets = policy_scope(Pet).order(created_at: :desc)
     @markers = @pets.geocoded.map do |pet|
       {
@@ -13,7 +11,11 @@ class PetsController < ApplicationController
       }
     end
   end
-    
+
+  def show
+    @pet = Pet.find(params[:id])
+  end
+
   def new
     @pet = Pet.new(params[:pet])
     authorize @pet
@@ -22,8 +24,11 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params[:pet])
     authorize @pet
-    @pet.user = current_user
-    @pet.save
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,8 +36,9 @@ class PetsController < ApplicationController
     @pet.edit(params[:pet])
   end
 
-  def show
-    @pet = Pet.find(params[:id])
+  def update
+    @pet.update(pet_params)
+    redirect_to pet_path(@pet)
   end
 
   def destroy
