@@ -1,0 +1,29 @@
+// Specific CSS for your home-page
+.home_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 64px;
+}
+
+#cont_home {
+  margin-top: 24px;
+  margin-bottom: 16vh;
+}
+
+.grid_cards {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+}
+
+#row_home {
+  margin-bottom: 20px;
+}
+
+.row{
+  margin-top: 24px;
+  margin-left: 100px;
+}
