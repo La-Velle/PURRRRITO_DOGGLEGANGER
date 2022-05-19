@@ -1,64 +1,40 @@
-<h1>Browse Pets!</h1>
-<br>
+<br><center><h1>Browse By Category</h1></center>
 <div class="container">
  <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
     Doggo
   </div>
-
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
     Kit Kats
   </div>
-
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1596138252452-463802fb8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
-    Dinos
+    Exotic
   </div>
 </div>
-
-
-<div class="container">
+<br>
+<center><h1>Some of our pets <i class="fas fa-heart"></i></h1></center>
+<br>
   <% @pets.each do |pet| %>
- <div class="cards">
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
-    </div>
-  <div class="card-product-infos">
-    <h2> <%= link_to pet.name, pets_path(pet) %></h2>
-    <h2>This lovely pet is a <%= pet.name %></h2>
-    <h2>This Pet is <%= pet.description %></h2>
-    <h2>Spend some time with <%= pet.name %> the price is <%= pet.price %> £ 25 </h2>
+    <div class="flex-container">
+      <div class="row justify content left">
+        <div class="card-pet"><img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" width=120px>
+          <div class="card-product-infos">
+            <div class="card-pet-text">
+              <h2><%= link_to pet.name, pets_path(pet) %></h2>
+              <p>Hi! My name is <%= pet.name %></p>
+              <p>I love to be <%= pet.description %></p>
+              <p>Spend some time with <%= pet.name %> for £<%= pet.price %> a day!</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 <% end %>
-</div>
-    <h1> All Pets </h1>
-    <% @pets.each do |pet| %>
-      <div class="row justify-content-left">
-
-        <div class="col-12 col-lg-6">
-          <h2><%= link_to pet.name, pets_path(pet) %></h2>
-            <div class="card-pet" >
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-product-infos">
-
-              <div class="card-pet-details">
-                    <div class="card-pet-text">
-                    <p>This lovely pet is a <%= pet.name %></p>
-                    <p>This Pet is  <%= pet.description %></p>
-                      <div class="card-pet-infos">
-                        <p>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</p>
-                      </div>
-
-                </div>
-             </div>
-
-            </div>
-
-          </div>
-      </div>
-    <% end %>
 </div>
 
 <h2 class="text-center">Pet Map</h2>
 <div style="width: 100%; height: 600px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['pk.eyJ1IjoidGxhLXZlbGxlIiwiYSI6ImNsMXBjdXRvcTBjMjYza25xeWRhcTFkZTcifQ.65vcEL19cNLRmp7CRm21uw'] %>"></div>
+    data-mapbox-api-key-value="<%= ENV['pk.eyJ1IjoidGxhLXZlbGxlIiwiYSI6ImNsMXBjdXRvcTBjMjYza25xeWRhcTFkZTcifQ.65vcEL19cNLRmp7CRm21uw'] %>">
+</div>
