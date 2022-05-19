@@ -15,22 +15,40 @@
   </div>
 </div>
 
-  <img src=#"https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="container ">
+  <div class="row justify-content-center pt-8">
+    <%= form_tag pets_path, method: :get do %>
+      <%= text_field_tag :query, params[:query],class: "form-control",placeholder: "Find a pet"%>
+      <%= submit_tag "Search a pet", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
+
+
+
+
+
 <div class="container">
     <h1> All Pets </h1>
     <% @pets.each do |pet| %>
-      <div class="row justify-content-left">
+      <div class="row justify-content-center ">
 
         <div class="col-12 col-lg-6">
           <h2><%= link_to pet.name, pets_path(pet) %></h2>
+
             <div class="card-pet" >
-          <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+            <% if pet.photo.attached? %>
+             <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
+                <% else %>
+               <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
+            <% end %>
+
             <div class="card-product-infos">
 
               <div class="card-pet-details">
                     <div class="card-pet-text">
                     <p>This lovely pet is a <%= pet.name %></p>
-                    <p>This Pet is  <%= pet.description %></p>
+                    <p>This Pet is  <%= pet.description %> </p>
                       <div class="card-pet-infos">
                         <p>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</p>
                       </div>

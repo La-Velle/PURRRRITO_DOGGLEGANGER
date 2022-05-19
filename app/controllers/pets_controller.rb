@@ -2,9 +2,9 @@ class PetsController < ApplicationController
 
 
   def index
-    #@pet = Pet.all
+    #Pet.search_by_name(params[:query])
 
-    @pets = Pet.all
+    #@pets = Pet.all
     @pets = policy_scope(Pet).order(created_at: :desc)
 
     # @markers = @pets.geocoded.map do |pet|
