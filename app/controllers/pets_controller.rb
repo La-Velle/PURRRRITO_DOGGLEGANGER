@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
+
     @pets = policy_scope(Pet).order(created_at: :desc)
     @markers = @pets.geocoded.map do |pet|
       {
@@ -14,6 +15,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+
   end
 
   def new

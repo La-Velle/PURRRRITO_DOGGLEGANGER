@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+# added to fast search by simone
+gem 'pg_search', '~> 2.3.0'
+
+# added to use load img by simone
+gem 'cloudinary', '~> 1.16.0'
+
+# added to  cloudinary API KEY
+gem 'dotenv-rails', groups: [:development, :test]
+
 # added pundit gem by simone
 gem 'pundit'
 
@@ -44,7 +53,6 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
