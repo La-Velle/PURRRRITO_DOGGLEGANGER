@@ -1,20 +1,21 @@
 class PetsController < ApplicationController
-
-
+  skip_before_action :authenticate_user!
   def index
-    #Pet.search_by_name(params[:query])
 
-    #@pets = Pet.all
     @pets = policy_scope(Pet).order(created_at: :desc)
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
+      }
+    end
+  end
 
-    # @markers = @pets.geocoded.map do |pet|
-    #   {
-    #     lat: pet.latitude,
-    #     lng: pet.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
-    #     image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
-    #   }
-    # end
+  def show
+    @pet = Pet.find(params[:id])
+
   end
 
   def new
@@ -25,8 +26,11 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params[:pet])
     authorize @pet
-    @pet.user = current_user
-    @pet.save
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,8 +38,9 @@ class PetsController < ApplicationController
     @pet.edit(params[:pet])
   end
 
-  def show
-    @pet = Pet.find(params[:id])
+  def update
+    @pet.update(pet_params)
+    redirect_to pet_path(@pet)
   end
 
   def destroy
@@ -44,10 +49,10 @@ class PetsController < ApplicationController
     @pet.destroy
     redirect_to pets_path
   end
-end
 
-private
+  private
 
-def pet_params
-  params.require(:pet).permit(:name, :description, :price, :availability)
+  def pet_params
+    params.require(:pet).permit(:name, :description, :price, :availability)
+  end
 end

@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'users/new'
+  get 'users/create'
   get "/home", to: "pages#home"
 
   devise_for :users
   root to: "pages#home"
+  match 'users/:id' => 'users#show', via: :get
+  post 'users/create'
+  post 'sessions/create'
 
   # PETS ROUTES by anna and simone added new
   get "pets", to: "pets#index"

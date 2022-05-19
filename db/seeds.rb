@@ -12,7 +12,6 @@ userone = User.create!(first_name: "T", last_name: "Lave", email: "lavellesine@g
 usertwo = User.create!(first_name: "A", last_name: "Godfrey", email: "anna@gmail.com", password: "123456")
 userthree = User.create!(first_name: "S", last_name: "Piccolo", email: "simone@gmail.com", password: "123456")
 
-
 pet_photos = ['https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?cs=srgb&dl=pexels-helena-lopes-2253275.jpg&fm=jpg','https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?cs=srgb&dl=pexels-gilberto-reyes-825949.jpg&fm=jpg']
 
 pet_photos.each do |photo|
@@ -54,5 +53,7 @@ pet_photos_three.each  do |photo|
    puts "check"
    pet_two.save!
   puts "after"
+
+
 end
 puts "Finished!"
