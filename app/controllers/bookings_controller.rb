@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
 
   def index
     @booking = Booking.all
-    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def show
@@ -13,7 +12,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    # GENERATE FORM form_for
   end
 
   def create
@@ -21,6 +19,7 @@ class BookingsController < ApplicationController
     if booking.save redirect_to booking_path(@booking)
     else
       render :new
+    end
   end
 
   def update
@@ -29,12 +28,12 @@ class BookingsController < ApplicationController
   end
 
   def delete
-      @booking.destroy
-      redirect_to booking_path(@booking)
-    end
+    @booking.destroy
+    redirect_to booking_path(@booking)
+  end
 
   private
-  #  not allow others to make unautherized changes
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
@@ -46,4 +45,9 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
+
+  def future_booking
+    @future_bookings = bookings.where("start_date >= '#{Date.today}'")
+  end
+
 end

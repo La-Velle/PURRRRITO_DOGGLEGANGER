@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'about',           to: 'pages#about',      as: :about
+  get 'contact',         to: 'pages#contact',    as: :contact
+
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :pets do
-    resources :bookings, only: [:new, :create, :destroy]
-  end
-  resources :bookings, only: [:show]
+
   resources :users
+  resources :pets do
+    resources :bookings
+  end
+  resources :bookings, except: [:new, :create] do
+    resources :reviews, only: [:new, :create, :show, :index]
+  end
 end

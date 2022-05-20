@@ -10,19 +10,26 @@ class PetsController < ApplicationController
         image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
       }
     end
+    if params[:query].present?
+      @pets = Pet.search_by_name_and_location(params[:query])
+    else
+      @pets = policy_scope(Pet)
+    end
   end
 
   def show
-    @pet = Pet.find(params[:id])
+    @booking = Booking.new
+    @bookings = pet.bookings
   end
 
   def new
-    @pet = Pet.new(params[:pet])
+    @pet = Pet.new
     authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params[:pet])
+    @pet.user_id = current_user
     authorize @pet
     if @pet.save
       redirect_to pet_path(@pet)
@@ -52,5 +59,10 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :description, :price, :availability)
+  end
+
+  def find_pet
+    @pet = Pet.find(params[:id])
+    authorize @pet
   end
 end
