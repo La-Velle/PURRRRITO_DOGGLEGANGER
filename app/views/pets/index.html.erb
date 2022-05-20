@@ -12,7 +12,6 @@
   </div>
 </div>
 
-
 <div class="container ">
   <div class="row justify-content-center pt-8">
     <%= form_tag pets_path, method: :get do %>
@@ -21,43 +20,31 @@
       <% end %>
   </div>
 </div>
-
-
-
-
-
+<br><br>
 <div class="container">
     <h1> All Pets </h1>
     <% @pets.each do |pet| %>
       <div class="row justify-content-center ">
-
-        <div class="col-12 col-lg-6">
-          <h2><%= link_to pet.name, pets_path(pet) %></h2>
-
+          <div class="col-12 col-lg-6">
             <div class="card-pet" >
-            <% if pet.photo.attached? %>
-             <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
+              <% if pet.photo.attached? %>
+              <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
                 <% else %>
-               <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
-            <% end %>
-
-            <div class="card-product-infos">
-
-              <div class="card-pet-details">
+                <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
+                <% end %>
+              <div class="card-product-infos">
+                <h2><%= link_to pet.name, pets_path(pet) %></h2>
+                <div class="card-pet-details">
                  <div class="card-pet-text">
-                    <p>This lovely pet is a <%= pet.name %></p>
-                    <p>This Pet is  <%= pet.description %> </p>
-                      <div class="card-pet-infos">
-                        <p>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</p>
-                      </div>
-
-                 </div>
+                    <p>Hi! my name is <%= pet.name %></p>
+                    <p>I love to be <%= pet.description %> </p>
+                    <p>£<%= pet.price %> per day</p>
+                  </div>
+                </div>
              </div>
             </div>
           </div>
-        </div>
       </div>
-    </div>
 <% end %>
 </div>
 
