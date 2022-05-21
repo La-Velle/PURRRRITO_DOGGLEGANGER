@@ -18,6 +18,8 @@ gem 'pundit'
 # added device gem by simone
 gem 'devise'
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+
 # added faker gem by anna
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 

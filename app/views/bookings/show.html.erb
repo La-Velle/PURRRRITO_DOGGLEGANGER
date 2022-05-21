@@ -1,0 +1,8 @@
+<div class="container-hero">
+  <div class="container-info shadow bg-white rounded m-3 p-3">
+    <h1><%= @booking.pet.name %></h1>
+        <p>Price £<%= @booking.cost %></p>
+        <p>Dates <%= @booking.start_date.strftime("%d-%m-%Y") %> to <%= @booking.end_date.strftime("%d-%m-%Y") %></p>
+        <p>Location <%= @booking.pet.location %> </p>
+  </div>
+</div>
