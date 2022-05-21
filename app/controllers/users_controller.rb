@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def show
+    @user = User
+    sign_out :user
+    redirect_to root_path
+  end
+
   def new
     @user = User.new
   end
@@ -15,6 +21,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
+
+  def user_pets
+    @pets = Pet.where(user_id: current_user)
+  end
+
 end

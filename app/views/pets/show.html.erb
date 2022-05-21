@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h1><%= @pet.name %></h1>
+    <p> Description - <%= @pet.description %> </p>
+    <p> Cost is £<%= @pet.price %> per day </p>
+    <p> Location <%= @pet.location %> </p>
+    <p> Category <%= @pet.category %> </p>
+  </div>
+
+  <div class="container-img-btn">
+      <div class="container-button">
+        <%= link_to 'Back', petss_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to 'View Bookings', bookings_path, class: "btn btn-lg btn-primary " %>
+        <button type="button" class=" btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#new_booking_modal">Book this Pet</button>
+        <%= render "bookings/new" %>
+      </div>
+    </div>
+</div>

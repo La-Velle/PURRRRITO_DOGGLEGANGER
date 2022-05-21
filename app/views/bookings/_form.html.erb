@@ -1,0 +1,7 @@
+<div class="p-5 mt-5 shadow rounded justify-content-center">
+  <%= simple_form_for [@pet, @booking] do |f| %>
+    <%= f.input :start_date, html5: true, input_html: {class: "datepicker"}  %>
+    <%= f.input :end_date, html5: true, input_html: {class: "datepicker"}  %>
+    <%= f.button :submit, "Book Pet", class: 'btn btn-primary'%>
+  <% end %>
+</div>

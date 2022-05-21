@@ -1,3 +1,4 @@
+
 <br><center><h1>Browse By Category</h1></center>
 <div class="container">
  <div class="cards">
@@ -13,20 +14,22 @@
   </div>
 
 
+
 <div class="container ">
-  <div class="row justify-content-center pt-8">
+  <div class="row justify-content-left pt-8">
     <%= form_tag pets_path, method: :get do %>
-      <%= text_field_tag :query, params[:query],class: "form-control",placeholder: "Find a pet"%>
-      <%= submit_tag "Search a pet", class: "btn btn-primary" %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a pet" %>
+      <br><%= submit_tag "search a pet", class: "btn btn-primary" %>
       <% end %>
   </div>
 </div>
 
-
-
-
+<br><center>
+<h1>Browse By Category</h1>
+</center>
 
 <div class="container">
+
     <h1> All Pets </h1>
   <div class="col-12 col-lg-6">
     <div class="cards">
@@ -70,6 +73,6 @@
       <h2>Pet Map</h2>
         <div class="card-map">
         </div>
-    
+
   </div>
 </div>
