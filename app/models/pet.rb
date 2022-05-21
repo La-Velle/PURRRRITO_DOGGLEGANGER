@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :name, :description, presence: true
 

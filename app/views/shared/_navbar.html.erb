@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/bunkyboy/image/upload/v1653067449/newbgbg_u7mmfd.png" %>
     <% end %>
 
@@ -17,22 +17,20 @@
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         <% else %>
+          <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
           <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <%= link_to "Find Out More", about_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
           <%= link_to "Browse Pets", pets_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
         <% end %>
       </ul>
