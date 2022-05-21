@@ -1,69 +1,40 @@
-<br><center><h1>Browse By Category</h1></center>
-<div class="container">
- <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
-    Doggo
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
-    Kit Kats
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1596138252452-463802fb8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
-    Exotic
-  </div>
-</div>
-
 
 <div class="container ">
-  <div class="row justify-content-center pt-8">
+  <div class="row justify-content-left pt-8">
     <%= form_tag pets_path, method: :get do %>
-      <%= text_field_tag :query, params[:query],class: "form-control",placeholder: "Find a pet"%>
-      <%= submit_tag "Search a pet", class: "btn btn-primary" %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a pet" %>
+      <br><%= submit_tag "search a pet", class: "btn btn-primary" %>
       <% end %>
   </div>
 </div>
 
-
-
-
+<br><center>
+<h1>Browse By Category</h1>
+</center>
 
 <div class="container">
-    <h1> All Pets </h1>
-    <% @pets.each do |pet| %>
-      <div class="row justify-content-center ">
-
-        <div class="col-12 col-lg-6">
-          <h2><%= link_to pet.name, pets_path(pet) %></h2>
-
-            <div class="card-pet" >
-            <% if pet.photo.attached? %>
-             <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
-                <% else %>
-               <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
-            <% end %>
-
-            <div class="card-product-infos">
-
-              <div class="card-pet-details">
-                 <div class="card-pet-text">
-                    <p>This lovely pet is a <%= pet.name %></p>
-                    <p>This Pet is  <%= pet.description %> </p>
-                      <div class="card-pet-infos">
-                        <p>Spend some time with <%= pet.name %> the price is <%= pet.price %> £</p>
-                      </div>
-
-                 </div>
-             </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
+    Dogs
     </div>
-<% end %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+    Kit Kats
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1596138252452-463802fb8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+    Exotic
+    </div>
+  </div>
 </div>
 
-<h2 class="text-center">Pet Map</h2>
-<div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['pk.eyJ1IjoidGxhLXZlbGxlIiwiYSI6ImNsMXBjdXRvcTBjMjYza25xeWRhcTFkZTcifQ.65vcEL19cNLRmp7CRm21uw'] %>">
+
+
+<div class="column">
+  <div class='column--map'>
+    <h2>Map of pets</h2>
+      <div class='map-container' style="width: 90%; height:70vh;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+  </div>
 </div>
