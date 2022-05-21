@@ -1,18 +1,28 @@
-<div class="container">
+<div class="containair ">
+  <div class="row   justify-content-center ">
+    <div class="card-pet-show" >
+                      <% if @pet.photo.attached? %>
+                        <%= cl_image_tag @pet.photo.key, height: 180, width: 180, crop: :pad %>
+                        <% else %>
+                        <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
+                      <% end %>
+                      <div class= "card-pet-infoshow"> </div>
+                        <div class="card-product-infos">
 
-    <h1><%= @pet.name %></h1>
-    <p> Description - <%= @pet.description %> </p>
-    <p> Cost is £<%= @pet.price %> per day </p>
-    <p> Location <%= @pet.location %> </p>
-    <p> Category <%= @pet.category %> </p>
-  </div>
+                          <div class="card-pet-details">
+                            <div class="card-pet-text">
+                                <p>This lovely pet is  <%= @pet.name %></p>
+                                <p>This Pet is  <%= @pet.description %> </p>
+                                  <div class="card-pet-infos">
+                                    <p>Spend some time with <%= @pet.name %>.</p>
+                                  </div>
+                                  <h3><%= link_to "Book #{@pet.name}", "#" %></h3>
 
-  <div class="container-img-btn">
-      <div class="container-button">
-        <%= link_to 'Back', petss_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to 'View Bookings', bookings_path, class: "btn btn-lg btn-primary " %>
-        <button type="button" class=" btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#new_booking_modal">Book this Pet</button>
-        <%= render "bookings/new" %>
-      </div>
+                                  <p><%= link_to "Back home", pets_path %></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
     </div>
+  </div>
 </div>

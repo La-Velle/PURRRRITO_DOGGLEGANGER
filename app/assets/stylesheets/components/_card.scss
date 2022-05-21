@@ -140,9 +140,14 @@ a {
 .card-pet {
   padding: 16px;
 }
+.card-pet-infoshow {
+  display: flex;
+  margin-left: 20px;
 
+}
 .card-pet-infos {
   display: flex;
+
 }
 
 .card-pet-text{
@@ -163,6 +168,18 @@ a {
   height: 400px;
   width: 1000px;
   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.card-pet-show{
+  overflow: hidden;
+  border-radius: 15%;
+  height: 400px;
+  width: 50%;
+  background: rgb(184, 226, 235);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
