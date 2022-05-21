@@ -28,6 +28,8 @@ body {
 }
 
 .row{
-  margin-top: 24px;
-  margin-left: 100px;
+  margin-top: 24px !important;
+  // margin-left: 100px;
+  // margin: none !important;
+  padding: 0 !important;
 }

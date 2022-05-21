@@ -19,8 +19,8 @@ class PetsController < ApplicationController
     #   }
     # end
 
-    if params[:query].present?
-     # @pets = (params[:query])
+    # if params[:query].present?
+    # @pets = (params[:query])
      # if @pets.empty?
       #  redirect_back(fallback_location: root_path)
        # flash[:alert] = "pet not found :("

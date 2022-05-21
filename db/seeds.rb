@@ -16,9 +16,10 @@ pet_photos = ['https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpe
 
 pet_photos.each do |photo|
 
- pet = Pet.new(user: userone,
+pet = Pet.new(user: userone,
   name: Faker::Creature::Dog.name,
-  description: Faker::Creature::Dog.meme_phrase)
+  price: rand(1...5),
+  description: Faker::Movies::Ghostbusters.quote)
    file = URI.open(photo)
 
    pet.photo.attach(io: file, filename: 'photo', content_type: 'image/png')
@@ -32,7 +33,8 @@ pet_photos_two.each  do |photo|
 
 pet_one = Pet.new(user: usertwo,
   name: Faker::Creature::Dog.name,
-  description: Faker::Creature::Dog.meme_phrase)
+  price: rand(1...5),
+  description: Faker::Movies::Ghostbusters.quote)
    file = URI.open(photo)
 
    pet_one.photo.attach(io: file, filename: 'photo', content_type: 'image/png')
@@ -46,7 +48,8 @@ pet_photos_three.each  do |photo|
 
   pet_two = Pet.new(user: userthree,
   name: Faker::Creature::Dog.name,
-  description: Faker::Creature::Dog.meme_phrase)
+  price: rand(1...5),
+  description: Faker::Movies::Ghostbusters.quote)
    file = URI.open(photo)
 
    pet_two.photo.attach(io: file, filename: 'photo', content_type: 'image/png')

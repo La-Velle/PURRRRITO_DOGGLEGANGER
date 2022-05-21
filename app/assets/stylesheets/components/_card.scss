@@ -18,7 +18,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -88,7 +88,8 @@
 // }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 8px;
+
 }
 
 .flex-container {
@@ -100,14 +101,15 @@
 // simone card-pet
 .card-pet {
   overflow: hidden;
-  height: 160px;
-  width: 300px;
+  height: 150px;
+  width: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+
 }
 
 .card-pet img {
@@ -122,23 +124,18 @@
   font-weight: bold;
   margin: 0;
 }
-a {
-  text-decoration: none;
-}
+
 .card-pet p {
   color: black;
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-  h2 {
-    text-decoration: none;
-  }
 }
 
 .card-pet {
-  padding: 16px;
+  padding: 8px;
 }
 .card-pet-infoshow {
   display: flex;
@@ -150,23 +147,25 @@ a {
 
 }
 
-.card-pet-text{
+.card-pet-text {
   margin-left: 8px;
-  a:link { text-decoration: none; }
-  a:visited { text-decoration: none; }
-  a:hover { text-decoration: none; }
-  a:active { text-decoration: none; }
+  // a:link { text-decoration: none; }
+  // a:visited { text-decoration: none; }
+  // a:hover { text-decoration: none; }
+  // a:active { text-decoration: none; }
+  padding-bottom: 65px;
 }
-.card-pet-details{
-  width: 70%;
+
+.card-pet-details {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-.card-map{
+.card-map {
   overflow: hidden;
   height: 400px;
-  width: 1000px;
+  width: 600px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -174,15 +173,8 @@ a {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-.card-pet-show{
-  overflow: hidden;
-  border-radius: 15%;
-  height: 400px;
-  width: 50%;
-  background: rgb(184, 226, 235);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+
+.submit {
   margin-top: 16px;
   margin-bottom: 16px;
 }
