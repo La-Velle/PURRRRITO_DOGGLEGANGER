@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.card-pet {
+  overflow: hidden;
+  height: 180px;
+  width: 720px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 26px;
+}
+.card-pet {
+  padding: 16px;
+}
+
+.card-pet-infos {
+  display: flex;
+}
+.card-pet-details{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

@@ -16,27 +16,31 @@
 </div>
 
 
-<div class="container">
+<%# <div class="container">
   <% @pets.each do |pet| %>
- <div class="cards">
+ <%# <div class="cards">
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
     </div>
   <div class="card-product-infos">
-    <h2> <%= link_to pet.name, pets_path(pet) %></h2>
-    <h2>This lovely pet is a <%= pet.name %></h2>
-    <h2>This Pet is <%= pet.description %></h2>
-    <h2>Spend some time with <%= pet.name %> the price is <%= pet.price %> £ 25 </h2>
-    </div>
+    <h2> <%= link_to pet.name, pets_path(pet) %>
+    <%# <h2>This lovely pet is a <%= pet.name %>
+    <%# <h2>This Pet is <%= pet.description %>
+    <%# <h2>Spend some time with <%= pet.name %>
+    <%# the price is <%= pet.price %>
+    <%# £25 </h2> %>
+    <%# </div>
 <% end %>
-</div>
+<%# </div> %>
     <h1> All Pets </h1>
     <% @pets.each do |pet| %>
       <div class="row justify-content-left">
 
         <div class="col-12 col-lg-6">
           <h2><%= link_to pet.name, pets_path(pet) %></h2>
+
             <div class="card-pet" >
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <%# <p> <%= avatar.image %>
+              <%= image_tag "yap dog.jpg", alt: "yap dog", class: 'image-width' %>
             <div class="card-product-infos">
 
               <div class="card-pet-details">
