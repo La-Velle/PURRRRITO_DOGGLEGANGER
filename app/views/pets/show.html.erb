@@ -16,7 +16,7 @@
                                   <div class="card-pet-infos">
                                     <p>Spend some time with <%= @pet.name %>.</p>
                                   </div>
-                                  <h3><%= link_to "Book #{@pet.name}", "#" %></h3>
+                                  <h3><%= link_to "Book #{@pet.name}",    new_pet_booking_path(@pet, @booking) %></h3>
 
                                   <p><%= link_to "Back home", pets_path %></p>
                             </div>

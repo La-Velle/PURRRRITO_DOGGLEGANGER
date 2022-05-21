@@ -1,7 +1,25 @@
 <h1 class="text-center p-2">Your Upcoming Bookings</h1>
 
-<div class="container">
-  <%= link_to booking_path(@booking) do %>
 
-  <% end %>
+
+
+<div class="container">
+  <div class="row   justify-content-center ">
+  <% current_user.bookings.each do |book|%>
+    <div class="card-pet" >
+      <div class= "card-pet-infoshow">
+       <%= book.pet.name   %>
+        <div class="card-product-infos">
+          <div class="card-pet-details">
+            <div class="card-pet-text">
+
+              <%= book.start_date  %>
+              <%= book.end_date  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
