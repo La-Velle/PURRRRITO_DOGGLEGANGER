@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     # if params[:query].present?
@@ -32,6 +32,8 @@ class PetsController < ApplicationController
   end
 
   def show
+    @pet = Pet.find(params[:id])
+
     @booking = Booking.new
   end
 
@@ -67,8 +69,8 @@ class PetsController < ApplicationController
     @pet.destroy
     redirect_to pets_path
   end
-
-  private
+end
+private
 
   def pet_params
     params.require(:pet).permit(:name, :description, :price, :availability)
@@ -78,4 +80,5 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     authorize @pet
   end
+
 end
