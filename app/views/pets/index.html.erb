@@ -1,78 +1,38 @@
-
-<br><center><h1>Browse By Category</h1></center>
-<div class="container">
- <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)">
-     Doggo
-    </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
-      Kit Kats
-    </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1596138252452-463802fb8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
-      Exotic
-    </div>
-  </div>
-
-
-
 <div class="container ">
-  <div class="row justify-content-left pt-8">
+  <div class="row pt-8">
     <%= form_tag pets_path, method: :get do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a pet" %>
-      <br><%= submit_tag "search a pet", class: "btn btn-primary" %>
+      <%= submit_tag "search a pet", class: "btn btn-primary submit" %>
       <% end %>
   </div>
 </div>
 
-<br><center>
-<h1>Browse By Category</h1>
-</center>
-
 <div class="container">
-
-    <h1> All Pets </h1>
-  <div class="col-12 col-lg-6">
+<h1 style="center">Browse Pets</h1>
     <div class="cards">
       <% @pets.each do |pet| %>
-        <div class="row justify-content-center ">
-
-
-              <div class="col-12">
-                <h2><%= link_to pet.name, pets_path(pet) %></h2>
-                <div class="card-pet" >
-                   <% if pet.photo.attached? %>
-                    <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
-                    <% else %>
-                    <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
-                  <% end %>
-
-                  <div class="card-product-infos">
-
+        <div class="row ">
+          <div>
+            <div class="card-pet" >
+              <% if pet.photo.attached? %>
+                <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
+              <% else %>
+                <%= img_src="https://unsplash.com/photos/JmJDyFUSYWI" %>
+              <% end %>
+                <div class="card-product-infos">
                     <div class="card-pet-details">
                       <div class="card-pet-text">
-                          <p>This lovely pet is a <%= pet.name %></p>
-                          <p>This Pet is  <%= pet.description %> </p>
+                          <p>Hi! I'm <%= link_to pet.name, pets_path(pet) %></p>
+                          <p>My personality is: <%= pet.description %></p>
                             <div class="card-pet-infos">
-                              <p>Spend some time with <%= pet.name %>.</p>
+                              <p>Lets hang for £<%= pet.price %> a day!</p>
                             </div>
-                      </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
         </div>
-
         <% end %>
     </div>
-  </div>
-</div>
-
-<div class="containair"></div>
-  <div class="col-12 col-lg-6">
-
-      <h2>Pet Map</h2>
-        <div class="card-map">
-        </div>
-
-  </div>
 </div>
