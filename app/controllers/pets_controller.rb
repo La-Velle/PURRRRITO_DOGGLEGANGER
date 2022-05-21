@@ -1,16 +1,21 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-
+    # if params[:query].present?
+    #     @pets = Pet.search_by_name(params[:query])
+    #   else
     @pets = policy_scope(Pet).order(created_at: :desc)
-    @markers = @pets.geocoded.map do |pet|
-      {
-        lat: pet.latitude,
-        lng: pet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
-        image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
-      }
-    end
+    #    @pets = Pet.all
+    # end
+ 
+    # @markers = @pets.geocoded.map do |pet|
+    #   {
+    #     lat: pet.latitude,
+    #     lng: pet.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+    #     image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
+    #   }
+    # end
   end
 
   def show

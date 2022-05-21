@@ -17,8 +17,8 @@ pet_photos = ['https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpe
 pet_photos.each do |photo|
 
  pet = Pet.new(user: userone,
-  name: Faker::Creature::Animal.name,
-  description: Faker::Creature::Bird.emotional_adjective)
+  name: Faker::Creature::Dog.name,
+  description: Faker::Creature::Dog.meme_phrase)
    file = URI.open(photo)
 
    pet.photo.attach(io: file, filename: 'photo', content_type: 'image/png')
@@ -31,8 +31,8 @@ pet_photos_two = ['https://images.pexels.com/photos/3009441/pexels-photo-3009441
 pet_photos_two.each  do |photo|
 
 pet_one = Pet.new(user: usertwo,
-  name: Faker::Creature::Animal.name,
-  description: Faker::Creature::Bird.emotional_adjective)
+  name: Faker::Creature::Dog.name,
+  description: Faker::Creature::Dog.meme_phrase)
    file = URI.open(photo)
 
    pet_one.photo.attach(io: file, filename: 'photo', content_type: 'image/png')
@@ -45,8 +45,8 @@ pet_photos_three = ['https://images.pexels.com/photos/1849974/pexels-photo-18499
 pet_photos_three.each  do |photo|
 
   pet_two = Pet.new(user: userthree,
-  name: Faker::Creature::Animal.name,
-  description: Faker::Creature::Bird.emotional_adjective)
+  name: Faker::Creature::Dog.name,
+  description: Faker::Creature::Dog.meme_phrase)
    file = URI.open(photo)
 
    pet_two.photo.attach(io: file, filename: 'photo', content_type: 'image/png')
