@@ -12,7 +12,7 @@
     <div class="cards">
       <% @pets.each do |pet| %>
         <div class="row ">
-          <div>
+          <div><h3><%= link_to pet.name, pet_path(pet) %></h3>
             <div class="card-pet" >
               <% if pet.photo.attached? %>
                 <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
@@ -22,7 +22,7 @@
                 <div class="card-product-infos">
                     <div class="card-pet-details">
                       <div class="card-pet-text">
-                          <p>Hi! I'm <%= link_to pet.name, pets_path(pet) %></p>
+                          <p>Hi! I'm <%= link_to pet.name, pet_path(pet) %></p>
                           <p>My personality is: <%= pet.description %></p>
                             <div class="card-pet-infos">
                               <p>Lets hang for £<%= pet.price %> a day!</p>

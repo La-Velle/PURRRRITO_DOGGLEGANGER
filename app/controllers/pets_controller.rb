@@ -7,28 +7,6 @@ class PetsController < ApplicationController
     #   else
     @pets = policy_scope(Pet).order(created_at: :desc)
     #    @pets = Pet.all
-    # end
-
-
-    # @markers = @pets.geocoded.map do |pet|
-    #   {
-    #     lat: pet.latitude,
-    #     lng: pet.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
-    #     image_url: helpers.asset_url("https://cdn5.vectorstock.com/i/1000x1000/47/94/dinosaur-excavation-icon-vector-16674794.jpg")
-    #   }
-    # end
-
-    # if params[:query].present?
-    # @pets = (params[:query])
-     # if @pets.empty?
-      #  redirect_back(fallback_location: root_path)
-       # flash[:alert] = "pet not found :("
-      #end
-    #else
-     # @pets = Pet.all
-    #end
-
   end
 
   def show
@@ -69,8 +47,8 @@ class PetsController < ApplicationController
     @pet.destroy
     redirect_to pets_path
   end
-end
-private
+
+  private
 
   def pet_params
     params.require(:pet).permit(:name, :description, :price, :availability)
@@ -80,5 +58,4 @@ private
     @pet = Pet.find(params[:id])
     authorize @pet
   end
-
 end
