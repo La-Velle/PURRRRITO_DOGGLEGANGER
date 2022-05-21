@@ -1,7 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :pet
   belongs_to :user
-  validates :user_id, uniqueness: true
   #  in future: has_many :reviews, dependent: :destroy
 
   validates :start_date, uniqueness: true, presence: true

@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :pets do
-    resources :bookings
+    resources :bookings, only: [:delete,:new, :edit, :update, :create, :show, :index]
   end
-  resources :bookings, except: [:new, :create] do
+  resources :bookings do
     resources :reviews, only: [:new, :create, :show, :index]
   end
 end
