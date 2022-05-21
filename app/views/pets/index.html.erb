@@ -38,7 +38,7 @@
 
 
               <div class="col-12">
-                <h2><%= link_to pet.name, pets_path(pet) %></h2>
+                <h2><%= link_to pet.name, pet_path(pet) %></h2>
                 <div class="card-pet" >
                    <% if pet.photo.attached? %>
                     <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :pad %>
@@ -50,7 +50,7 @@
 
                     <div class="card-pet-details">
                       <div class="card-pet-text">
-                          <p>This lovely pet is a <%= pet.name %></p>
+                          <p>This lovely pet is <%= pet.name %></p>
                           <p>This Pet is  <%= pet.description %> </p>
                             <div class="card-pet-infos">
                               <p>Spend some time with <%= pet.name %>.</p>
